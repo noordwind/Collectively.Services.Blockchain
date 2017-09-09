@@ -41,8 +41,7 @@ namespace Collectively.Services.Blockchain.Framework
             {
                 builder.Populate(_services);
                 builder.RegisterType<CustomJsonSerializer>().As<JsonSerializer>().SingleInstance();
-                // builder.RegisterInstance(_configuration.GetSettings<ExceptionlessSettings>()).SingleInstance();
-                // builder.RegisterType<ExceptionlessExceptionHandler>().As<IExceptionHandler>().SingleInstance();
+                builder.RegisterInstance(_configuration.GetSettings<JwtTokenSettings>()).SingleInstance();
                 SecurityContainer.Register(builder, _configuration);
             });
         }
