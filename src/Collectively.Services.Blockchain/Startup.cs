@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Collectively.Common.Logging;
 using Collectively.Services.Blockchain.Framework;
-using Lockbox.Client.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -17,25 +16,9 @@ namespace Collectively.Services.Blockchain
 {
     public class Startup
     {
-        // public Startup(IConfiguration configuration)
-        // {
-        //     Configuration = configuration;
-        // }
-
-        public Startup(IHostingEnvironment env)
+        public Startup(IConfiguration configuration)
         {
-            var builder = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                .AddEnvironmentVariables()
-                .SetBasePath(env.ContentRootPath);
-
-            // if (env.IsProduction() || env.IsDevelopment())
-            // {
-            //     builder.AddLockbox();
-            // }
-
-            Configuration = builder.Build();
+            Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }

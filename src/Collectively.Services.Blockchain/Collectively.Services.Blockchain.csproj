@@ -15,7 +15,7 @@
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.2.0" />
     <PackageReference Include="Exceptionless" Version="4.0.1955" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.0.0" />
-    <PackageReference Include="Lockbox.Client" Version="1.0.0" />
+    <PackageReference Include="Lockbox.Client" Version="2.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Owin" Version="2.0.0" />

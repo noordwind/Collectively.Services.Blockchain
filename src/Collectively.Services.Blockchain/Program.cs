@@ -18,17 +18,6 @@ namespace Collectively.Services.Blockchain
                 .Create<Startup>(args: args)
                 .Build()
                 .Run();
-
-            //BuildWebHost(args).Run();
         }
-
-        // public static IWebHost BuildWebHost(string[] args) =>
-        //     WebHost.CreateDefaultBuilder(args)
-        //         .UseStartup<Startup>()
-        //         .UseConfiguration(new ConfigurationBuilder()
-        //             .AddEnvironmentVariables()
-        //             .AddCommandLine(args)
-        //             .Build())
-        //         .Build();
     }
 }
