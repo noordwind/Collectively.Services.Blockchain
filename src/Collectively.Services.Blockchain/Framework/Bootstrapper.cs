@@ -19,6 +19,12 @@ using Collectively.Common.Services;
 using Newtonsoft.Json;
 using Microsoft.Extensions.DependencyInjection;
 using Autofac.Extensions.DependencyInjection;
+using Collectively.Services.Blockchain.Services;
+using Collectively.Services.Blockchain.Services.BlockCypher;
+using Collectively.Services.Blockchain.Services.BlokchainInfo;
+using Collectively.Services.Blockchain.Services.Mappers;
+using Collectively.Services.Blockchain.Services.BlokchainInfo.Mappers;
+using Info.Blockchain.API.Models;
 
 namespace Collectively.Services.Blockchain.Framework
 {
@@ -42,6 +48,11 @@ namespace Collectively.Services.Blockchain.Framework
                 builder.Populate(_services);
                 builder.RegisterType<CustomJsonSerializer>().As<JsonSerializer>().SingleInstance();
                 builder.RegisterInstance(_configuration.GetSettings<JwtTokenSettings>()).SingleInstance();
+                builder.RegisterType<BlokchainInfoService>().As<IBlokchainInfoService>().InstancePerLifetimeScope();
+                builder.RegisterType<BlockCypherService>().As<IBlockCypherService>().InstancePerLifetimeScope();
+                builder.RegisterType<IBlockCypherService>().As<IBlockchainService>().InstancePerLifetimeScope();
+                builder.RegisterType<BlockchainInfoTransactionMapper>().As<ITransactionMapper<Transaction>>().SingleInstance();
+                builder.RegisterType<BlockchainInfoAddressMapper>().As<IAddressMapper<Address>>().SingleInstance();
                 SecurityContainer.Register(builder, _configuration);
             });
         }
